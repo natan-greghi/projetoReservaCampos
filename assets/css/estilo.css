@@ -1,0 +1,267 @@
+.fundo{
+position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1; 
+  	background-image: url('../img/Pedra1.jpg');
+  	background-attachment: fixed;
+  	background-position: 0 -220px;
+	height: 400px;
+  -webkit-filter: blur(0px) brightness(1.5);
+  -moz-filter: blur(0px) brightness(1.5);
+  -o-filter: blur(0px) brightness(1.5);
+  -ms-filter: blur(0px) brightness(1.5);
+  filter: blur(0px) brightness(1.5);
+  
+}
+#pesquisa{
+	margin-top: 10px;
+}
+.search{
+	text-align: center;
+}
+.topo{
+	text-align: center;
+	position: relative;
+}
+#logo{
+	display: block;
+	width: 200px;
+	height: 150px;
+}
+#fundo{
+}
+#btnlogin{
+	float: right;
+}
+#btnanuncio{
+	margin-top: 100px;
+	font-size: 2em;
+}
+
+@font-face{
+	font-family: Pacific;
+	src: url('../fonts/Pacifico.ttf');
+}
+
+.topo{
+	height: 350px;
+	/*background-image: url('../img/bg-topo.jpg');*/
+	overflow: hidden;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: Pacific;
+}
+.topo h1{
+	font-size: 5em;
+}
+
+
+.rodape{
+	margin-top: 150px;
+	font-family: Pacific;
+	text-align: center;
+	background-color: #FFF;
+}
+.rodape img{
+	height: 70px;
+	width: 70px;
+	margin-top: 20px;
+}
+#pagseguro{
+	width: auto;
+	height: auto;
+}
+.container{
+
+}
+
+#cadastro-form{
+	text-align: left;
+	width: 50%;
+	margin-left: 25%;
+}
+
+#titulo-form{
+	text-align: center;
+}
+
+#container-cadastro{
+
+}
+
+body{
+	background-image: url("../img/skulls.png");
+}
+
+.corpo{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	-webkit-box-shadow: 3px 1px 24px 11px rgba(150,142,150,1);
+-moz-box-shadow: 3px 1px 24px 11px rgba(150,142,150,1);
+box-shadow: 3px 1px 24px 11px rgba(150,142,150,1);
+}
+.image img{
+	width: 100px;
+	height: 100px;
+}
+.starmenu{
+	margin-top: 15px;
+		-webkit-box-shadow: 3px 1px 24px 11px rgba(150,142,150,1) inset;
+-moz-box-shadow: 3px 1px 24px 11px rgba(150,142,150,1)inset;
+box-shadow: 3px 1px 24px 11px rgba(150,142,150,1)inset;
+padding: 25px;
+border-top-left-radius: 20px;
+border-bottom-left-radius:20px;
+
+}
+.starmenu h4{
+	text-align: center;
+}
+footer .row{
+ margin: 0;
+}
+
+hr{
+	   border: 0!important;
+    height: 1px!important;
+    background: #333;
+    background-image: linear-gradient(to right, #EFC447, #DC4C15, #EFC447);
+}
+.estrelas{
+  font-size: 1.7em;
+  padding:0px;
+  display: inline!important;
+  color: yellow;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#paginacao{
+	text-align: center;
+}
+#listahotel{
+	margin-top: 15px!important;
+	margin-bottom: 15px!important;
+}
+.preco{
+	text-align: center;
+}
+
+.pesq{
+	padding: 15px;
+	padding-right: 15px;
+ 	 left: 0;
+ 	 right: 0;
+  	z-index: -1;
+	background-image: url("../img/skulls.png");
+	left: 0;
+  	right: 0;
+	background-attachment: fixed;
+  	
+}
+.servicos img{
+	width: 30px;
+	height: 30px;
+}
+.servicos{
+	text-align: center;
+}
+.servicos p{
+	margin-top: 40px;
+}
+
+.cupom{
+	position: relative;
+	margin-right: -20px;
+	margin-top: 20px;
+  width: 110px;
+  height: 30px;
+  border: 2px solid rgba(218, 165, 32, 1.0);
+  color: rgba(218, 165, 32, 1.0);
+  text-align: center;
+  background: rgb(153,0,0);
+   -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg)   ;
+  float:right;
+  font-family: Pacific;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  z-index: 1;
+
+}
+
+.carousel-control.left{
+    background: transparent;
+}
+
+.carousel-control.right{
+    background: transparent;
+}
+h4{
+    font-size: 1.2em;
+}
+body{
+    background-image: url("../img/skulls.png");
+}
+#corpo{
+    margin-top: 15px;
+    background-color: rgba(247, 247, 223, 0.68);
+	-webkit-box-shadow: 0px 2px 41px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 41px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 41px -2px rgba(0,0,0,0.75); 
+}
+
+#informacoes div{
+    padding-right: 70px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    display: inline-table;
+    list-style: none;
+}
+#informacoes spam{
+    color: #2637BB;
+}
+#informacoes img{
+    margin-right: 8px;   
+}
+#googleMap{
+    margin-top: 15%;
+    height: 450px;
+    -moz-border-radius: 22px;
+    -webkit-border-radius: 22px;
+    border-radius: 22px;
+    -moz-box-shadow: 0px 0px 14px #000000;
+    -webkit-box-shadow: 0px 0px 14px #000000;
+    box-shadow: 0px 0px 14px #000000;
+}
+#quarto th{
+    text-align: center;   
+    font-size: 1.5em;
+}
+#quarto span{
+    margin-bottom: 8px;
+    display: block;
+}
+#quarto td{
+    vertical-align:middle;
+    text-align: center;
+    font-size: 1.2em;
+    height: 150px;
+    width: 300px;
+}
+#quarto img{
+    height:125px;
+    width: 250px;
+    
+}
+#imagens {
+    margin-top: 15px; 
+}
+#imagens img{
+    height: 400px;
+    width: 1500px;
+    
+}
+
+
