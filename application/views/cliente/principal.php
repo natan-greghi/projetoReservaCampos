@@ -18,6 +18,7 @@
 			        <input type="text" class="input-sm form-control" name="end" placeholder="Data de Saída" />
 			    </div>
 			    <select name="quarto" id="input" class="form-control">
+			    	<option value="">Escolha o tipo de quarto...</option>
 			    	<option value="1">Quarto individual</option>
 			    	<option value="2">Quarto Duplo</option>
 			    	<option value="3">Quartos Família</option>
@@ -109,7 +110,7 @@
 							<h4><?php echo $hotel['tipoquarto']?></h4>
 							<h3 style="text-decoration:line-through"> R$ <?php echo $hotel['precoFixo'] ?></h3>
 							<h3>R$ <?php echo $hotel['precoPromo']?> </h3>
-						 <a href="<?php  echo site_url('')?>" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-question-sign"></span> Ver detalhes</a>
+						 <a href="<?php  echo site_url('DetalhesHotel/index/'.$hotel['idHotelPousada'])?>" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-question-sign"></span> Ver detalhes</a>
 					</div>
 			
 			</div>
