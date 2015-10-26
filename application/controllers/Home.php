@@ -16,6 +16,10 @@ class Home extends CI_Controller {
 
 		$dados = array('nome' => $this->input->post("filtro"),
 						'tipoQuarto' => $this->input->post("quarto"));
+		if($dados['nome'] != "" || $dados['tipoQuarto']){
+
+		echo "entro no if";
+		print_r($dados);
 
 		$hotel = array('hoteis'=> $this->p->consulta($dados));
 
@@ -33,6 +37,12 @@ class Home extends CI_Controller {
 		
 		$this->load->view('cliente/principal', $hotel);
 		$this->load->view('layout/rodape');
+	}
+	else
+	{
+		echo "entro no else";
+		redirect('Home/index');
+	}
 
 	}
 
