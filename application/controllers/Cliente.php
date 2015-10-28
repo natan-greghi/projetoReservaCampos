@@ -3,7 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Cliente extends CI_Controller {
 
+    public function cadastro(){
+        $this->load->model("cliente_model","Cliente");
+
+        $dados = array(
+            "titulo" => "Cadastre-se!",
+            "estados" => $this->Cliente->listarEstado(),
+            "cidades" => $this->Cliente->listarCidade()
+        );
+
+        $this->load->view('layout/topo', $dados);
+        $this->load->view('cliente/cadastrar', $dados);
+        $this->load->view('layout/rodape');
+    }
+
 	public function cadastrar(){
+        $this->load->model("cliente_model","Cliente");
 
 		$dados = array(
 			"titulo" => "Cadastre-se!"
@@ -16,30 +31,30 @@ class Cliente extends CI_Controller {
         $this->form_validation->set_rules('nome', 'Nome', 'required');
         $this->form_validation->set_rules('cpf', 'CPF', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('senha', 'Password', 'required|matches[passconf]');
-        $this->form_validation->set_rules('senhaconf', 'Password Confirmation', 'required');
+        $this->form_validation->set_rules('senha', 'Senha', 'required');
+        //$this->form_validation->set_rules('senhaconf', 'Password Confirmation', 'required');
 
-        $this->form_validation->set_rules('telefone-fixo', 'Telefone-fixo');
-        $this->form_validation->set_rules('telefone-cel', 'Telefone-cel', 'required');
-        $this->form_validation->set_rules('rua', 'Rua', 'required');
+        $this->form_validation->set_rules('telefone-fixo', 'telefone-fixo');
+        //$this->form_validation->set_rules('telefone-cel', 'Telefone-cel', 'required');
+        //$this->form_validation->set_rules('rua', 'Rua', 'required');
         $this->form_validation->set_rules('UF', 'UF', 'required');
-        $this->form_validation->set_rules('cidade', 'Cidade', 'required');                
+        $this->form_validation->set_rules('cidade', 'cidade', 'required');                
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->load->view('cliente/cadastrar');
+            echo "Não rolou";
         }
         else
         {
         	$nome = $this->input->post('nome');
             $cpf = $this->input->post('cpf');
             $email = $this->input->post('email');
-            $senha = $this->input->post('senha');
+            $senha = do_hash($this->input->post('senha'),'md5');
 
-            $telfixo = $this->input->post('telefone-fixo');
-            $telcel = $this->input->post('telefone-cel');
-            $rua = $this->input->post('rua');
-            $UF = $this->input->post('UF');
+            $telefone = $this->input->post('telefone-fixo');
+            //$telcel = $this->input->post('telefone-cel');
+            //$rua = $this->input->post('rua');
+            $uf = $this->input->post('UF');
             $cidade = $this->input->post('cidade');
 
         	$this->Cliente->nome = $nome;
@@ -47,10 +62,10 @@ class Cliente extends CI_Controller {
         	$this->Cliente->email = $email;
             $this->Cliente->senha = $senha;
 
-            $this->Cliente->telfixo = $telfixo;
-            $this->Cliente->telcel = $telcel;
-            $this->Cliente->rua = $rua;
-            $this->Cliente->UF = $UF;
+            $this->Cliente->telefone = $telefone;
+            //$this->Cliente->telcel = $telcel;
+            //$this->Cliente->rua = $rua;
+            $this->Cliente->uf = $uf;
             $this->Cliente->cidade = $cidade;
 
         	$this->Cliente->inserir();
@@ -60,4 +75,5 @@ class Cliente extends CI_Controller {
 
 		$this->load->view('layout/rodape');
 	}
+
 }
