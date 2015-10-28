@@ -15,7 +15,10 @@ class Home extends CI_Controller {
 		$this->load->view('layout/topo', $title);
 
 		$dados = array('nome' => $this->input->post("filtro"),
-						'tipoQuarto' => $this->input->post("quarto"));
+						'tipoQuarto' => $this->input->post("quarto"),
+						'dataInicio' => $this->input->post("start"),
+						'dataFim' => $this->input->post("end"));
+		
 		if($dados['nome'] != "" || $dados['tipoQuarto']){
 
 		echo "entro no if";
