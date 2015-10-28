@@ -86,10 +86,10 @@ define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-define('CSS', 'http://localhost/reservacampos/assets/css');
-define('JS', 'http://localhost/reservacampos/assets/js');
-define('IMG', 'http://localhost/reservacampos/assets/img/');
-define('FONTS', 'http://localhost/reservacampos/assets/fonts');
-define('STAR', 'http://localhost/reservacampos/assets/ratingstar');
-define('SLIDER', 'http://localhost/reservacampos/assets/sliderprice');
-define('DATE', 'http://localhost/reservacampos/assets/datepicker');
+define('CSS', 'http://localhost/projetoReservaCampos/assets/css');
+define('JS', 'http://localhost/projetoReservaCampos/assets/js');
+define('IMG', 'http://localhost/projetoReservaCampos/assets/img/');
+define('FONTS', 'http://localhost/projetoReservaCampos/assets/fonts');
+define('STAR', 'http://localhost/projetoReservaCampos/assets/ratingstar');
+define('SLIDER', 'http://localhost/projetoReservaCampos/assets/sliderprice');
+define('DATE', 'http://localhost/projetoReservaCampos/assets/datepicker');
