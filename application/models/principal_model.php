@@ -15,7 +15,7 @@ class Principal_model extends CI_Model {
 			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
 			$this->db->join('tipoquarto t','q.tipoQuarto_idtipoQuarto = t.idtipoQuarto');
 			$this->db->where('t.idtipoQuarto',$dados['tipoQuarto']);
-			$this->db->or_like('h.nome',$dados['nome']);
+			$this->db->like('h.nome',$dados['nome']);
 			$this->db->group_by('h.nome');
 			$this->db->order_by('q.precoFixo','asc');
 			$query = $this->db->get();
@@ -41,17 +41,17 @@ class Principal_model extends CI_Model {
 
 			$this->db->select('h.hotelPousada_idHotelPousada, h.servicos_idservicos, s.nome ,s.img');
 			$this->db->from('hotelpousadaservicos h'); 
-            $this->db->join('servicos s', 'h.servicos_idservicos = s.idservicos');
-            $this->db->where('h.hotelPousada_idHotelPousada =',$dados);        
-            $query = $this->db->get();
-             if($query->num_rows() != 0)
-            {
-                return $query->result_array();
-            }
-            else
-            {
-                return false;
-            } 
+			$this->db->join('servicos s', 'h.servicos_idservicos = s.idservicos');
+			$this->db->where('h.hotelPousada_idHotelPousada =',$dados);        
+			$query = $this->db->get();
+			if($query->num_rows() != 0)
+			{
+				return $query->result_array();
+			}
+			else
+			{
+				return false;
+			} 
 
 		}
 	}
