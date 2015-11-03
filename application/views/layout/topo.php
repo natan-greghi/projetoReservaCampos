@@ -25,7 +25,7 @@
 	<div class="row topo">
 	<div class="fundo"></div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" >
-			<a href="<?php echo site_url('Home/principal'); ?>"><img src="<?php echo IMG . "/logo.png"?>" id="logo"></a>
+			<a href="<?php echo site_url('Home'); ?>"><img src="<?php echo IMG . "/logo.png"?>" id="logo"></a>
 		</div>
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			<h1>Reserva Campos!</h1>
@@ -42,7 +42,7 @@
           <input placeholder="Senha" class="form-control" maxlength="10" type="password">
           <button type="submit" class="btn btn-primary">Logar-se »</button>
           <br>
-          <a href="cadastro_usuario.php"> Ainda não cadastrado? Clique aqui</a>                                  
+          <a href="<?php echo site_url('Cliente/cadastro'); ?>"> Ainda não cadastrado? Clique aqui</a>                                  
         </div>
       </form>
     </div>
