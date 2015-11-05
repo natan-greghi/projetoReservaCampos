@@ -86,5 +86,36 @@ class Home extends CI_Controller {
 		$this->load->view('layout/rodape');
 	}
 
+	public function filtroAvancado()
+	{
+		$title = array(
+			"titulo" => "Detalhes",
+			);
+
+
+		$dados = array(
+			'estrelas' => $this->input->post("rating"),
+			'categoria' => $this->input->post("categoria"),
+			'preco' => $this->input->post("preco")
+			);
+		$hotel = array(
+			'hoteis'=> $this->p->pesquisaAvancada($dados));
+
+		for($i=0 ; $i < count($hotel['hoteis']) ; $i++) {
+			if($this->p->consultarServico($hotel['hoteis'][$i]['idHotelPousada']))
+			{
+				$hotel['hoteis'][$i]['servicos'] =  $this->p->consultarServico($hotel['hoteis'][$i]['idHotelPousada']);
+			}else
+			{
+				$hotel['hoteis'][$i]['servicos'] = 0;
+			}			
+		}
+
+		$this->load->view('layout/topo', $title);
+		$this->load->view('cliente/principal',$hotel);
+		$this->load->view('layout/rodape');
+
+	}
+
 }
 

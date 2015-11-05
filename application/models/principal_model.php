@@ -55,4 +55,19 @@ class Principal_model extends CI_Model {
 
 		}
 	}
+
+	public function pesquisaAvancada($dados)
+	{
+		$this->db->select('h.*, q.precoFixo, q.precoPromo, t.nome as "tipoquarto"');
+		$this->db->from('hotelpousada h');
+		$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
+		$this->db->join('tipoquarto t','q.tipoQuarto_idtipoQuarto = t.idtipoQuarto');
+		$this->db->where('h.categoria',$dados['categoria']);
+		$this->db->where('classificacao',$dados['estrelas']);
+		$this->db->where('q.precoPromo > 0');
+		$this->db->where('q.precoPromo <=', $dados['preco']);
+		$query = $this->db->get();
+		return $query->result_array();
+
+	}
 } 
