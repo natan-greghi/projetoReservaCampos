@@ -35,7 +35,7 @@
 	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 starmenu">
 		<h4> Filtros avançados</h4>
 		<?php echo form_open('Home/filtroAvancado'); ?>
-		<fieldset>
+		<fieldset id="stars">
 			<span class="star-cb-group">
 				<input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
 				<input type="radio" id="rating-4" name="rating" value="4"  /><label for="rating-4">4</label>
@@ -49,12 +49,12 @@
 		<h4>Categoria</h4>
 		<div class="checkbox">
 			<label>
-				<input type="checkbox" name="categoria" value="1">
+				<input type="radio" name="categoria" onclick="desabilitar()" id="cathotel" value="1">
 				Hotel
 			</label>
 			<br>
 			<label>
-				<input type="checkbox" name="categoria" value="2">
+				<input type="radio" name="categoria" onclick="desabilitar()" id="catpousada" value="2">
 				Pousada
 			</label>
 		</div>
@@ -185,4 +185,17 @@
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
 	})
+</script>
+
+<script type="text/javascript">
+	function desabilitar(){
+		if(document.getElementById('catpousada').checked)
+		{
+			document.getElementById('stars').style.display = "none";
+		}
+		else
+		{
+			document.getElementById('stars').style.display = "block";
+		}
+	}
 </script>

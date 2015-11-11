@@ -98,6 +98,7 @@ class Home extends CI_Controller {
 			'categoria' => $this->input->post("categoria"),
 			'preco' => $this->input->post("preco")
 			);
+		print_r($dados);
 		$hotel = array(
 			'hoteis'=> $this->p->pesquisaAvancada($dados));
 
