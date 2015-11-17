@@ -61,7 +61,7 @@
 
 		<hr>
 		<h4>Preço</h4>
-		<input id="ex13" name="preco" type="text" data-slider-ticks="[0,200, 400, 600, 800]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["$0", "$200", "$400", "$600", "$800"]'/>
+		<input id="ex13" name="preco" type="text" data-slider-ticks="[0, 200, 400, 600, 800]" data-slider-ticks-snap-bounds="10" data-slider-ticks-labels='["$0", "$200", "$400", "$600", "$800"]'/>
 		<button class="btn btn-primary" style="float:right" type="submit">Buscar</button>
 	</form>
 </div>
@@ -152,7 +152,7 @@
 	$("#ex13").slider({
 		ticks: [0, 200, 400, 600, 800],
 		ticks_labels: ['$0', '$200', '$400', '$600', '$800'],
-		ticks_snap_bounds: 30
+		ticks_snap_bounds: 10
 	});
 </script>
 
