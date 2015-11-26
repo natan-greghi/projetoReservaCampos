@@ -19,7 +19,7 @@
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 </head>
 
-<body>
+<body>	
 
 	<div class="container-fluid">
 		<div class="row topo">
@@ -46,7 +46,7 @@
 				</div>
 			</form>
 		</div>
-		<script type="text/javascript">
+		<script>
 			$("[data-toggle=popover]").popover({
 				html: true, 
 				content: function() {
