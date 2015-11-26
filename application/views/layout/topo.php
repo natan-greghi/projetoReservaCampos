@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo DATE . "/css/bootstrap-datepicker.min.css" ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo STAR . "/css/stars.css" ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo SLIDER . "/css/bootstrap-slider.css" ?>">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 	<script src="<?php echo JS . "/jquery-2.1.4.min.js"?>"></script>
 	<script src="<?php echo JS . "/bootstrap.js" ?>"></script>
