@@ -41,154 +41,139 @@
                 </div>
             </div>
         </div>
-            
-        <div class="container" id="corpo">
+        
+        <div>    
+            <div class="container" id="corpo" style="margin-bottom: 15px";>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3><strong><?php echo $topoDetalhes->nome; ?></strong></h3>
+                        <h4><?php echo $topoDetalhes->endereco_fisico; ?></h4>
+                        <h4>Telefone: <?php echo $topoDetalhes->telefone; ?></h4>
+                        <h4><a><?php echo $topoDetalhes->link_site; ?></a></h4>
+                        <hr>
+                        <h3>Informações sobre as comodidades oferecidas</h3>
+                        <div id="informacoes">
+                            <div>
+                            <h4>Atividades</h4>
+                            <ui>
+                                <?php foreach ($servicos as $servico) { 
+
+                                    if($servico->id_tiposervicos == 1){?>
+                              
+                                <li><spam class="glyphicon glyphicon-ok"></spam> <?php echo $servico->nome ?></li>
+                                <?php   } }?>
+                            </ui>
+                            </div>
+                            <div>
+                            <h4>Comidas e bebidas</h4>
+                            <ui>
+                                <?php foreach ($servicos as $servico) { 
+                                    if($servico->id_tiposervicos == 2){ ?>
+                                    <li><spam class="glyphicon glyphicon-ok"></spam> <?php echo $servico->nome ?></li>
+
+                                <?php } } ?>
+                            </ui>
+                            </div>
+                            <div>
+                            <h4>Serviços</h4>
+                            <ui>
+
+                                <?php foreach ($servicos as $servico) { 
+                                    if($servico->id_tiposervicos == 3){ ?>
+                                    <li><spam class="glyphicon glyphicon-ok"></spam> <?php echo $servico->nome ?></li>
+
+                                <?php } } ?>
+                            </ui>
+                            </div>
+                            <div>
+                            <h4>Geral</h4>
+                            <ui>
+                                <?php foreach ($servicos as $servico) { 
+                                    if($servico->id_tiposervicos == 4){ ?>
+                                    <li><spam class="glyphicon glyphicon-ok"></spam> <?php echo $servico->nome ?></li>
+
+                                <?php } } ?>
+                            </ui>
+                            </div>
+                            <div>
+                                <h4>Cartões aceitos</h4> 
+                                <?php foreach ($cartoes as $cartao) { ?>
+
+                                    <img src="<?php echo IMG. "/cartoes/". $cartao->img; ?>">
+                                
+                               <?php } ?>
+                                
+                            </div>
+                        </div>
+                        <?php ?>
+                </div>
+
+                <div class="col-md-4" id="col">
+                    <div id="googleMap"></div>
+                </div>
+
+            </div>
+
             <div class="row">
-                <div class="col-md-8">
-                    <h3><strong>Nome do Hotel/Pousada</strong></h3>
-                    <h4>Rua margarida, nº 666, Bairro Capivari</h4>
-                    <h4>Telefone: (12)3333-3333</h4>
-                    <h4><u>www.linkdosite.com.br</u></h4>
-                    <hr>
-                    <h3>Informações sobre as comodidades oferecidas</h3>
-                    <div id="informacoes">
-                        <div>
-                        <h4>Atividades</h4>
-                        <ui>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Sauna</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Academia</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Salão de jogos</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Piscina</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Quadra de esportes</li>
-                        </ui>
-                        </div>
-                        <div>
-                        <h4>Comidas e bebidas</h4>
-                        <ui>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Bar</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Restaurante</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Lanchonete</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Cafe da manhã no quarto</li>
-                        </ui>
-                        </div>
-                        <div>
-                        <h4>Serviços</h4>
-                        <ui>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Serviço de quarto</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Recepção 24hrs</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Lavanderia</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Loja de Souvenirs</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Serviço de concierge</li>
-                        </ui>
-                        </div>
-                        <div>
-                        <h4>Geral</h4>
-                        <ui>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Áre para fumantes</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Quartos ant-alergicos</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Estacionamento</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Elevador</li>
-                            <li><spam class="glyphicon glyphicon-ok"></spam> Wi-Fi</li>
-                        </ui>
-                        </div>
-                        <div>
-                            <h4>Cartões aceitos</h4> 
-                            <img src="<?php echo IMG. "/grandehotel/amex-48px.png"?>">
-                            <img src="<?php echo IMG. "/grandehotel/elo-48px.png"?>">
-                            <img src="<?php echo IMG. "/grandehotel/mastercard-48px.png"?>">
-                            <img src="<?php echo IMG. "/grandehotel/visa-48px.png"?>">
-                            <img src="<?php echo IMG. "/grandehotel/diners-48px.png"?>">
-                        </div>
-                    </div>
+                <div class="table-responsive"><hr>
+                    <table class="table table-hover" id="quarto">
+                        <thead>
+                            <tr>
+                                <th>Quarto</th>
+                                <th>Tipo de Quarto</th>
+                                <th>Serviços</th>
+                                <th>Max. Pessoa</th>
+                                <th>Preço</th>
+                                <th>Reservar Agora</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $cont = 0; foreach ($tabela as $tabelaD) { ?>
+                                <tr>
+                                    <td><h4><?php echo $tabelaD->nome; ?></h4><img src="<?php echo IMG ."/grandehotel/". $tabelaD->imagem ?>"></td>
+                                    <td><h1><?php echo $tabelaD->nomeTipoQuarto ?></h1></td>
+                                    <td>
+                                        
+                                        <?php echo $servicoQuarto[$cont]['servicos']; $cont++; ?>
+                                      
+                                    </td>
+                                    <td><h1><?php echo $tabelaD->nPessoas; ?></h1></td>
+                                    <td><h4 style="text-decoration:line-through"><?php echo $tabelaD->precoPromo;?></h4><h3> <?php echo $tabelaD->precoFixo; ?></h3></td>
+                                    <td><a class="btn btn-warning">Reservar agora</a></td>
 
-            </div>
-
-            <div class="col-md-4" id="col">
-                <div id="googleMap"></div>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="table-responsive"><hr>
-                <table class="table table-hover" id="quarto">
-                    <thead>
-                        <tr>
-                            <th>Quarto</th>
-                            <th>Tipo de Quarto</th>
-                            <th>Serviços</th>
-                            <th>Max. Pessoa</th>
-                            <th>Preço</th>
-                            <th>Reservar Agora</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="<?php echo IMG ."/grandehotel/casa2.jpg"?>"></td>
-                            <td>Suíte master</td>
-                            <td><span class="fa fa-lock fa-lg" data-toggle="tooltip" data-placement="top" title="Cofre"></span>
-                                <span class="fa fa-phone fa-lg" data-toggle="tooltip" data-placement="top" title="Telefone"></span>
-                                <span class="fa fa fa-coffee fa-lg" data-toggle="tooltip" data-placement="top" title="Café da manhã"></span>
-
-                            </td>
-                            <td>2 adultos</td>
-                            <td>R$ 850,00</td>
-                            <td><a class="btn btn-warning">Reservar agora</a></td>
-
-                        </tr>
-                        <tr>
-                            <td><img src="<?php echo IMG ."/grandehotel/casa2.jpg"?>"></td>
-                            <td>Suite família</td>
-                            <td>
-                                <span class="fa fa-lock fa-lg" data-toggle="tooltip" data-placement="top" title="Cofre"></span>
-                                <span class="fa fa-phone fa-lg" data-toggle="tooltip" data-placement="top" title="Telefone"></span>
-                                <span class="fa fa fa-coffee fa-lg" data-toggle="tooltip" data-placement="top" title="Café da manhã"></span>
-                            </td>
-                            <td>2 adultos e 2 crianças</td>
-                            <td>R$ 1500,00</td>
-                            <td><a class="btn btn-warning">Reservar agora</a></td>
-                        </tr>
-                        <tr>
-                            <td><img src="<?php echo IMG ."/grandehotel/casa2.jpg"?>"></td>
-                            <td>Economico</td>
-                            <td>
-                                <span class="fa fa-lock fa-lg" data-toggle="tooltip" data-placement="top" title="Cofre"></span>
-                                <span class="fa fa-phone fa-lg" data-toggle="tooltip" data-placement="top" title="Telefone"></span>
-                                <span class="fa fa fa-coffee fa-lg" data-toggle="tooltip" data-placement="top" title="Café da manhã"></span>
-                            </td>
-                            <td>1 pessoa</td>
-                            <td>R$ 300,00</td>
-                            <td><a class="btn btn-warning">Reservar agora</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                                </tr>
+                            <?php } ?>
+                            
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </div>
         
       
-	</body>
+</body>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVIpYkPFo4IWt67kNSzse-xOTVBj0G8Mc&callback=initMap">
+    </script>
     <script>
-        $(function () {
-          $('[data-toggle="tooltip"]').tooltip()
-        })
-        function initialize() {
-            var mapProp = {
-              center:new google.maps.LatLng(-22.743070, -45.591944),
-              zoom:15,
-              mapTypeId:google.maps.MapTypeId.ROADMAP
-          };
-            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-        var endereco = 'Rua Monsenhor José Vita, 280, Campos do Jordão - SP';
-        geocoder = new google.maps.Geocoder();     
-        geocoder.geocode({'address':endereco}, function(results, status){
-        if( status = google.maps.GeocoderStatus.OK){
-            latlng = results[0].geometry.location;
-            markerInicio = new google.maps.Marker({position: latlng,map: map});    
-            map.setCenter(latlng);
-        }
-        });
-     </script>
+        function initMap() {
+      var myLatLng = {lat: <?php echo $topoDetalhes->latitude; ?>, lng: <?php echo $topoDetalhes->longitude; ?>};
+
+      // Create a map object and specify the DOM element for display.
+      var map = new google.maps.Map(document.getElementById('googleMap'), {
+        center: myLatLng,
+        scrollwheel: false,
+        zoom: 16
+      });
+
+      // Create a marker and set its position.
+      var marker = new google.maps.Marker({
+        map: map,
+        position: myLatLng,
+        title: '<?php echo $topoDetalhes->nome; ?>'
+      });
+    }
+
+
+</script>
