@@ -7,7 +7,7 @@ class Principal_model extends CI_Model {
 	public function consulta($dados = null)
 	{
 
-		if($dados != null){
+		if($dados['tipoQuarto'] > 0 && $dados['nome'] != null){
 			$this->db->select('h.*, t.nome AS "tipoquarto"');
 			$this->db->select_min('q.precoFixo');
 			$this->db->select_min('q.precoPromo');
@@ -22,7 +22,36 @@ class Principal_model extends CI_Model {
 			return $query->result_array();
 			
 		}
-		else{
+		else if($dados['tipoQuarto'] > 0 && $dados['nome'] == null )
+		{
+			$this->db->select('h.*, t.nome AS "tipoquarto"');
+			$this->db->select_min('q.precoFixo');
+			$this->db->select_min('q.precoPromo');
+			$this->db->from('hotelpousada h');
+			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
+			$this->db->join('tipoquarto t','q.tipoQuarto_idtipoQuarto = t.idtipoQuarto');
+			$this->db->where('t.idtipoQuarto',$dados['tipoQuarto']);
+			$this->db->group_by('h.nome');
+			$this->db->order_by('q.precoFixo','asc');
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+		else if($dados['tipoQuarto'] == 0 && $dados['nome'] != null)
+		{
+			$this->db->select('h.*, t.nome AS "tipoquarto"');
+			$this->db->select_min('q.precoFixo');
+			$this->db->select_min('q.precoPromo');
+			$this->db->from('hotelpousada h');
+			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
+			$this->db->join('tipoquarto t','q.tipoQuarto_idtipoQuarto = t.idtipoQuarto');
+			$this->db->like('h.nome',$dados['nome']);
+			$this->db->group_by('h.nome');
+			$this->db->order_by('q.precoFixo','asc');
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+		else
+		{
 			$this->db->select('h.*,t.nome AS "tipoquarto"');
 			$this->db->select_min('q.precoFixo');
 			$this->db->select_min('q.precoPromo');
@@ -61,7 +90,7 @@ class Principal_model extends CI_Model {
 
 		if($dados['estrelas'] == null && $dados['categoria'] == 1 && $dados['preco'] == 0)
 		{
-			print_r("1");
+			
 			$this->db->select('h.*, q.precoFixo, q.precoPromo, t.nome as "tipoquarto"');
 			$this->db->from('hotelpousada h');
 			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
@@ -73,7 +102,6 @@ class Principal_model extends CI_Model {
 		}
 		else if($dados['categoria'] == 1 && $dados['preco'] > 0 && $dados['estrelas'] == null)
 		{
-			print_r("2");
 			$this->db->select('h.*, q.precoFixo, q.precoPromo, t.nome as "tipoquarto"');
 			$this->db->from('hotelpousada h');
 			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
@@ -86,7 +114,7 @@ class Principal_model extends CI_Model {
 		}
 		else if($dados['categoria'] == 1 && $dados['estrelas'] > 0 && $dados['preco'] == 0)
 		{
-			print_r("3");
+			
 			$this->db->select('h.*, q.precoFixo, q.precoPromo, t.nome as "tipoquarto"');
 			$this->db->from('hotelpousada h');
 			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
@@ -100,7 +128,7 @@ class Principal_model extends CI_Model {
 		}
 		else if($dados['categoria'] == 2 && $dados['preco'] > 0)
 		{
-			print_r("4");
+			;
 			$this->db->select('h.*, q.precoFixo, q.precoPromo, t.nome as "tipoquarto"');
 			$this->db->from('hotelpousada h');
 			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
@@ -113,7 +141,7 @@ class Principal_model extends CI_Model {
 		}
 		else if($dados['categoria'] == 2 && $dados['preco'] == 0)
 		{
-			print_r("5");
+			
 			$this->db->select('h.*, q.precoFixo, q.precoPromo, t.nome as "tipoquarto"');
 			$this->db->from('hotelpousada h');
 			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
@@ -126,7 +154,7 @@ class Principal_model extends CI_Model {
 		}
 		else if($dados['categoria'] == null && $dados['preco'] > 0 && $dados['estrelas'] > 0)
 		{
-			print_r("6");
+			
 			$this->db->select('h.*, q.precoFixo, q.precoPromo, t.nome as "tipoquarto"');
 			$this->db->from('hotelpousada h');
 			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
@@ -138,7 +166,7 @@ class Principal_model extends CI_Model {
 
 		}
 		else if ($dados['categoria'] == null && $dados['preco'] > 0 && $dados['estrelas'] == null) {
-			print_r("7");
+			
 			$this->db->select('h.*, q.precoFixo, q.precoPromo, t.nome as "tipoquarto"');
 			$this->db->from('hotelpousada h');
 			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
@@ -148,8 +176,8 @@ class Principal_model extends CI_Model {
 			$query = $this->db->get();
 			return $query->result_array();
 		}
-		else if($dados['categoria'] == null &&$dados['preco'] == 0){
-			print_r("8");
+		else if($dados['categoria'] == null && $dados['preco'] == 0 && $dados['estrelas'] > 0){
+			
 			$this->db->select('h.*, q.precoFixo, q.precoPromo, t.nome as "tipoquarto"');
 			$this->db->from('hotelpousada h');
 			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
@@ -159,9 +187,9 @@ class Principal_model extends CI_Model {
 			$query = $this->db->get();
 			return $query->result_array();
 		}
-		else
+		else if($dados['categoria'] == 1 && $dados['preco'] > 0 && $dados['estrelas'] > 0)
 		{
-			print_r("9");
+			
 			$this->db->select('h.*, q.precoFixo, q.precoPromo, t.nome as "tipoquarto"');
 			$this->db->from('hotelpousada h');
 			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
@@ -172,6 +200,20 @@ class Principal_model extends CI_Model {
 			$this->db->where('q.precoPromo <=', $dados['preco']);
 			$query = $this->db->get();
 			return $query->result_array();
+		}
+		else
+		{
+			$this->db->select('h.*,t.nome AS "tipoquarto"');
+			$this->db->select_min('q.precoFixo');
+			$this->db->select_min('q.precoPromo');
+			$this->db->from('hotelpousada h');
+			$this->db->join('quartos q', 'h.idHotelPousada = q.hotelPousada_idHotelPousada');
+			$this->db->join('tipoquarto t','q.tipoQuarto_idtipoQuarto = t.idtipoQuarto');
+			$this->db->group_by('h.nome');
+			$this->db->order_by('q.precoFixo','asc');
+			$query = $this->db->get();
+			return $query->result_array();
+
 		}
 		
 
