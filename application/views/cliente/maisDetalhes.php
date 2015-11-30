@@ -59,7 +59,7 @@
                             <?php foreach ($servicos as $servico) { 
 
                                 if($servico->id_tiposervicos == 1){?>
-                                
+
                                 <li><spam class="glyphicon glyphicon-ok"></spam> <?php echo $servico->nome ?></li>
                                 <?php   } }?>
                             </ui>
@@ -100,9 +100,9 @@
                                         <?php foreach ($cartoes as $cartao) { ?>
 
                                         <img src="<?php echo IMG. "/cartoes/". $cartao->img; ?>">
-                                        
+
                                         <?php } ?>
-                                        
+
                                     </div>
                                 </div>
                                 <?php ?>
@@ -133,25 +133,25 @@
                                             <td><h4><?php echo $tabelaD->nome; ?></h4><img src="<?php echo IMG ."/grandehotel/". $tabelaD->imagem ?>"></td>
                                             <td><h1><?php echo $tabelaD->nomeTipoQuarto ?></h1></td>
                                             <td>
-                                                
+
                                                 <?php echo $servicoQuarto[$cont]['servicos']; $cont++; ?>
-                                                
+
                                             </td>
                                             <td><h1><?php echo $tabelaD->nPessoas; ?></h1></td>
-                                            <td><h4 style="text-decoration:line-through"><?php echo $tabelaD->precoPromo;?></h4><h3> <?php echo $tabelaD->precoFixo; ?></h3></td>
-                                            <td><a class="btn btn-warning">Reservar agora</a></td>
+                                            <td><h4 style="text-decoration:line-through">R$ <?php echo $tabelaD->precoFixo; ?></h4><h3>R$ <?php echo $tabelaD->precoPromo;?></h3></td>
+                                            <td><a href="<?php  echo site_url('Carrinho/index/'.$tabelaD->idquartos)?>" class="btn btn-warning">Reservar agora</a></td>
 
                                         </tr>
                                         <?php } ?>
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
 
                         </div>
                     </div>
-                    
-                    
+
+
                 </body>
                 <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVIpYkPFo4IWt67kNSzse-xOTVBj0G8Mc&callback=initMap">

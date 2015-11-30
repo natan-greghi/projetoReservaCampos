@@ -31,7 +31,7 @@ class Detalhes_model extends CI_Model {
 	}
 
 	public function tabelaDetalhes ($idHotel){
-		$this->db->select('quartos.nome, quartos.imagem, quartos.nPessoas, quartos.precoFixo, quartos.precoPromo, tipoquarto.nome AS nomeTipoQuarto');
+		$this->db->select('quartos.idquartos, quartos.nome, quartos.imagem, quartos.nPessoas, quartos.precoFixo, quartos.precoPromo, tipoquarto.nome AS nomeTipoQuarto');
 		$this->db->from('quartos');
 		$this->db->join('tipoquarto', 'quartos.tipoQuarto_idtipoQuarto = tipoquarto.idtipoQuarto');
 		$this->db->where('quartos.hotelPousada_idHotelPousada', $idHotel);
