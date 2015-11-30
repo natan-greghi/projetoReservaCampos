@@ -13,9 +13,9 @@
 				</span>
 			</div>
 			<div class="input-daterange input-group" id="datepicker">
-				<input type="text" class="input-sm form-control" name="start" placeholder="Data de Entrada" />
+				<input type="text" class="input-sm form-control" name="start" placeholder="Data de Entrada" disabled />
 				<span class="input-group-addon">até</span>
-				<input type="text" class="input-sm form-control" name="end" placeholder="Data de Saída" />
+				<input type="text" class="input-sm form-control" name="end" placeholder="Data de Saída" disabled/>
 			</div>
 			<select name="quarto" id="input" class="form-control">
 				<option value="">Escolha o tipo de quarto...</option>
