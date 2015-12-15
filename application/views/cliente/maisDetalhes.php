@@ -139,9 +139,26 @@
                                             </td>
                                             <td><h1><?php echo $tabelaD->nPessoas; ?></h1></td>
                                             <td><h4 style="text-decoration:line-through">R$ <?php echo $tabelaD->precoFixo; ?></h4><h3>R$ <?php echo $tabelaD->precoPromo;?></h3></td>
-                                            <td><a href="<?php  echo site_url('Carrinho/index/'.$tabelaD->idquartos)?>" class="btn btn-warning">Reservar agora</a></td>
+
+
+                                            <td>
+                                                <?php echo form_open('carrinho/inserirCarrinho'); ?>
+                                                <?php echo form_hidden('idquartos', $tabelaD->idquartos); ?>
+                                                <?php echo form_hidden('precoPromo', $tabelaD->precoPromo); ?>
+                                                <?php echo form_hidden('nome', $tabelaD->nome); ?>
+                                                <?php echo form_hidden('NumeroPessoas', $tabelaD->nPessoas); ?>
+                                                <?php echo form_hidden('servicos', $servicoQuarto[$cont -1]); ?>
+
+                                                <button type="submit" class="btn btn-warning">Reservar agora</button>
+
+                                                <?php echo form_close(); ?>
+                                            </td>
+
+
+
 
                                         </tr>
+                                        
                                         <?php } ?>
 
                                     </tbody>
